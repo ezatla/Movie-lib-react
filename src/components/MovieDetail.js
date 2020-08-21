@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faLink, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Rating from "react-rating";
 
-const MovieDetail = () => {
+const MovieDetail = ({ fetchTheId }) => {
   const { isLoading, setLoading } = useContext(MovieContext);
 
   const { movieId } = useParams();
@@ -91,7 +91,7 @@ const MovieDetail = () => {
   if (isLoading) return <p>Loadinnggg...</p>;
 
   return (
-    <Wrapper>
+    <Wrapper onLoad={() => fetchTheId(movieId)}>
       <PosterWrapper>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}

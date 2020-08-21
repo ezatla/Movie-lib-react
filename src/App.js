@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import tw from "twin.macro";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, useLocation, useParams } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar";
 import MainHome from "./components/MainHome";
@@ -12,30 +12,40 @@ import SearchMovie from "./components/SearchMovie";
 const HomeWrapper = tw.div`flex`;
 
 const App = () => {
+
+  const [movieId, setMovieId] = useState(null)
+
+  let location = useLocation();
+  // let { movieId } = useParams();
+
+  const handleFetchId = (fetchedMovieId) => {
+    setMovieId(fetchedMovieId)
+  }
+
+  
   return (
-    <BrowserRouter>
-      <HomeWrapper>
-        <Sidebar />
-        <Switch>
-          <Redirect exact from="/" to="discover/popular" />
-          <Route exact path="/discover/popular">
-            <MainHome />
-          </Route>
-          <Route exact path="/discover/top rated">
-            <TopRated />
-          </Route>
-          <Route exact path="/discover/upcoming">
-            <Upcoming />
-          </Route>
-          <Route exact path="/search/:name">
-            <SearchMovie />
-          </Route>
-          <Route path="/movie/:movieId">
-            <MovieDetail />
-          </Route>
-        </Switch>
-      </HomeWrapper>
-    </BrowserRouter>
+    <HomeWrapper>
+      {location.pathname !== `/movie/${movieId}` && <Sidebar />}
+
+      <Switch>
+        <Redirect exact from="/" to="discover/popular" />
+        <Route exact path="/discover/popular">
+          <MainHome />
+        </Route>
+        <Route exact path="/discover/top rated">
+          <TopRated />
+        </Route>
+        <Route exact path="/discover/upcoming">
+          <Upcoming />
+        </Route>
+        <Route exact path="/search/:name">
+          <SearchMovie />
+        </Route>
+        <Route path="/movie/:movieId">
+          <MovieDetail fetchTheId={handleFetchId}/>
+        </Route>
+      </Switch>
+    </HomeWrapper>
   );
 };
 
