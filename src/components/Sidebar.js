@@ -15,10 +15,13 @@ const Sidebar = () => {
   const { burgerMenu, setBurgerMenu } = useContext(MovieContext);
 
   return (
-    <MainWrapper>
-      {burgerMenu && <Layer onClick={() => setBurgerMenu(false)}/>}
+      <>
+      {burgerMenu && <Layer onClick={() => setBurgerMenu(false)} />}
 
-      <SidebarWrapper className={burgerMenu && "toggle_menu"} onClick={() => setBurgerMenu(false)}>
+      <SidebarWrapper
+        style={{transform: burgerMenu ? "translateX(0%)" : ""}}
+        onClick={() => setBurgerMenu(false)}
+      >
         <StickyBox offsetTop={0} offsetBottom={200}>
           <SidebarItem>
             <NavLink
@@ -52,7 +55,7 @@ const Sidebar = () => {
           </SidebarItem>
         </StickyBox>
       </SidebarWrapper>
-    </MainWrapper>
+    </>
   );
 };
 
@@ -61,9 +64,7 @@ export default Sidebar;
 // styles
 
 const MainWrapper = styled.div`
-  .toggle_menu {
-    transform: translateX(0%);
-  }
+  
 `;
 
 const Layer = styled.div`

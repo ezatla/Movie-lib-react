@@ -118,5 +118,8 @@ const Wrapper = styled.div`
     left: 2rem;
     top: 2rem;
     cursor: pointer;
+    @media (min-width: 1024px){
+      display: none;
+    }
   }
 `;
