@@ -13,7 +13,6 @@ const MainHome = () => {
   const { isLoading, setLoading } = useContext(MovieContext);
   const [state, setState] = useState({ movies: [], page: 1 });
 
-  console.log(state);
 
   // // Load More
   const loadMoreMovies = async () => {
@@ -26,7 +25,6 @@ const MainHome = () => {
           process.env.REACT_APP_API_KEY
         }&page=${state.page + 1}`,
       });
-      console.log(result);
       setState((prev) => ({
         ...prev,
         movies: result.data.results,
