@@ -51,7 +51,6 @@ const MovieDetail = ({ fetchTheId }) => {
     imdb_id,
   } = state.movie;
 
-  console.log(state.movie);
 
   // Function to destruture the year from date
   const splitYear = (date) => {
@@ -169,7 +168,7 @@ const PosterWrapper = styled.div`
   }
 `;
 const MoviedetailsWrapper = styled.div`
-  ${tw`w-full sm:w-full md:w-2/5 px-8 overflow-hidden leading-relaxed`}
+  ${tw`w-full sm:w-full md:w-2/5 px-8 overflow-hidden leading-relaxed container mx-auto`}
 
   h1 {
     ${tw`text-4xl leading-loose tracking-wider uppercase font-light`}

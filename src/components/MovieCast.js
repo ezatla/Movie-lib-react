@@ -11,7 +11,6 @@ import NoImage from "../assets/noUser.png";
 const MovieCast = ({ movieId }) => {
   const [state, setState] = useState({ cast: [] });
   const [isLoading, setLoading] = useState(false);
-  console.log(state);
   const fetchCast = async () => {
     try {
       setLoading(true);

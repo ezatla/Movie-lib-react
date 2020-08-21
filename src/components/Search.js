@@ -65,7 +65,7 @@ const Search = () => {
           value={searchValue}
           onClick={toggleSearch}
           ref={ref}
-          className={toggle && "toggle_search"}
+          className={toggle ? 'toggle_search' : null}
         />
         <FontAwesomeIcon
           className="search_icon"

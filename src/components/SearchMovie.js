@@ -28,7 +28,6 @@ const SearchMovie = () => {
   const { isLoading, setLoading } = useContext(MovieContext);
   const [state, setState] = useState({ movies: [], page: 1 });
 
-  console.log(state);
 
   let { name } = useParams();
 
@@ -43,7 +42,6 @@ const SearchMovie = () => {
           process.env.REACT_APP_API_KEY
         }&page=${state.page + 1}&query=${name}`,
       });
-      console.log(result);
       setState((prev) => ({
         ...prev,
         movies: result.data.results,
