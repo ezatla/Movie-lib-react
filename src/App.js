@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import tw from "twin.macro";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
-function App() {
+import Sidebar from "./components/Sidebar";
+import MainHome from "./components/MainHome";
+import TopRated from "./components/TopRated";
+import Upcoming from "./components/Upcoming";
+import MovieDetail from "./components/MovieDetail";
+import SearchMovie from "./components/SearchMovie";
+
+const HomeWrapper = tw.div`flex`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <HomeWrapper>
+        <Sidebar />
+        <Switch>
+          <Redirect exact from="/" to="discover/popular" />
+          <Route exact path="/discover/popular">
+            <MainHome />
+          </Route>
+          <Route exact path="/discover/top rated">
+            <TopRated />
+          </Route>
+          <Route exact path="/discover/upcoming">
+            <Upcoming />
+          </Route>
+          <Route exact path="/search/:name">
+            <SearchMovie />
+          </Route>
+          <Route path="/movie/:movieId">
+            <MovieDetail />
+          </Route>
+        </Switch>
+      </HomeWrapper>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
