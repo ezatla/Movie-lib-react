@@ -80,7 +80,7 @@ const Upcoming = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div>
+    <>
       {!isLoading && (
         <Wrapper>
           <Search />
@@ -99,7 +99,7 @@ const Upcoming = () => {
           </CardWrapper>
         </Wrapper>
       )}
-    </div>
+    </>
   );
 };
 
