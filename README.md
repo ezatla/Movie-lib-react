@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-https://movie-lib7.netlify.app/
+[Live Preview](https://movie-lib7.netlify.app).
 
 ## Available Scripts
 
