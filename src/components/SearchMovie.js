@@ -7,6 +7,8 @@ import { MovieContext } from "../context/movieContext";
 
 import MovieCard from "./MovieCard";
 import Search from "./Search";
+import Spinner from './Spinner'
+
 
 // Styles
 const MainWrapper = tw.div`md:w-10/12 container mx-auto px-10`;
@@ -77,7 +79,7 @@ const SearchMovie = () => {
     fetchMovies();
   }, [name]);
 
-  if (isLoading) return <p>Loadinng......</p>;
+  if (isLoading) return <Spinner />
   if (!state.movies) return <p>No Movie Found</p>;
   return (
     <div>

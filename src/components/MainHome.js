@@ -8,6 +8,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import MovieCard from "./MovieCard";
 import Search from "./Search";
+import Spinner from './Spinner'
 
 const MainHome = () => {
   const { isLoading, setLoading } = useContext(MovieContext);
@@ -60,7 +61,7 @@ const MainHome = () => {
     fetchMovies();
   }, []);
 
-  if (isLoading) return <p>Loadinng......</p>;
+  if (isLoading) return <Spinner/>
 
   return (
     <>

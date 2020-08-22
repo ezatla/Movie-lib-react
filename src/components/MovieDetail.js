@@ -9,6 +9,7 @@ import MovieCast from "./MovieCast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faLink, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Rating from "react-rating";
+import Spinner from "./Spinner";
 
 const MovieDetail = ({ fetchTheId }) => {
   const { isLoading, setLoading } = useContext(MovieContext);
@@ -51,7 +52,6 @@ const MovieDetail = ({ fetchTheId }) => {
     imdb_id,
   } = state.movie;
 
-
   // Function to destruture the year from date
   const splitYear = (date) => {
     if (!date) {
@@ -87,7 +87,7 @@ const MovieDetail = ({ fetchTheId }) => {
     }
   };
 
-  if (isLoading) return <p>Loadinnggg...</p>;
+  if (isLoading) return <Spinner />;
 
   return (
     <Wrapper onLoad={() => fetchTheId(movieId)}>

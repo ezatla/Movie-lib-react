@@ -6,6 +6,8 @@ import { MovieContext } from "../context/movieContext";
 
 import MovieCard from "./MovieCard";
 import Search from "./Search";
+import Spinner from './Spinner'
+
 
 // Styles
 const Wrapper = tw.div`md:w-10/12 container mx-auto px-10`;
@@ -75,7 +77,7 @@ const TopRated = () => {
     fetchMovies();
   }, []);
 
-  if (isLoading) return <p>Loadinng......</p>;
+  if (isLoading) return <Spinner />
 
   return (
     <div>
