@@ -157,6 +157,7 @@ export default MovieDetail;
 
 const Wrapper = styled.div`
   ${tw`flex flex-wrap -mx-8 mt-12`}
+  overflow-x: hidden;
 `;
 const PosterWrapper = styled.div`
   ${tw`w-full sm:w-full md:w-2/5 px-8 flex justify-center rounded-md`}
