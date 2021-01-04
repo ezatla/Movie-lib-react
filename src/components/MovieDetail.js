@@ -156,8 +156,8 @@ export default MovieDetail;
 // Styles
 
 const Wrapper = styled.div`
-  ${tw`flex flex-wrap -mx-8 mt-12`}
-  overflow-x: hidden;
+  ${tw`flex flex-wrap -mx-8 md:mt-12`}
+  overflow: hidden;
 `;
 const PosterWrapper = styled.div`
   ${tw`w-full sm:w-full md:w-2/5 px-8 flex justify-center rounded-md`}
@@ -169,19 +169,19 @@ const PosterWrapper = styled.div`
   }
 `;
 const MoviedetailsWrapper = styled.div`
-  ${tw`w-full sm:w-full md:w-2/5 px-8 overflow-hidden leading-relaxed container mx-auto`}
+  ${tw`w-full sm:w-full md:w-2/5 overflow-hidden leading-relaxed container mx-auto px-10`}
 
   h1 {
-    ${tw`text-4xl leading-loose tracking-wider uppercase font-light`}
+    ${tw`text-2xl md:text-4xl leading-loose tracking-wider uppercase font-light`}
   }
   h4 {
-    ${tw`text-base leading-loose tracking-normal uppercase font-semibold`}
+    ${tw`text-base md:text-base leading-loose tracking-normal uppercase font-semibold`}
   }
 
   .rating {
     ${tw`text-gray-500 leading-normal`}
     .rating_child {
-      margin-right: 5rem;
+    ${tw`mr-10 md:mr-20`}
       color: initial;
     }
     span {
@@ -208,5 +208,5 @@ const MoviedetailsWrapper = styled.div`
 `;
 
 const Button = styled.button`
-  ${tw`font-normal py-1 px-4 border rounded-full mr-6 mt-10 text-base leading-6 tracking-wide hover:bg-gray-800 hover:text-white transition duration-150 ease-in-out`}
+  ${tw`font-normal py-1 px-2 md:px-4 border rounded-full mr-6 mt-10 text-base leading-6 tracking-wide hover:bg-gray-800 hover:text-white transition duration-150 ease-in-out`}
 `;

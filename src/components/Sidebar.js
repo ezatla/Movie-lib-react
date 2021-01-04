@@ -91,6 +91,10 @@ const SidebarWrapper = styled.div`
     transform: translateX(-116%);
     transition: 280ms ease-in-out;
   }
+  @media (max-width: 798.98px){
+    width: 50%;
+  }
+
 `;
 
 const SidebarItem = styled.div`

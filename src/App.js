@@ -9,7 +9,7 @@ import Upcoming from "./components/Upcoming";
 import MovieDetail from "./components/MovieDetail";
 import SearchMovie from "./components/SearchMovie";
 
-const HomeWrapper = tw.div`flex`;
+const HomeWrapper = tw.div`flex overflow-x-hidden`;
 
 const App = () => {
 
